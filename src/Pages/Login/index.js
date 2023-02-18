@@ -39,7 +39,11 @@ function Firstscreen({navigation}){
             </View>
             </View>
 
-            <TouchableOpacity activeOpacity={0.5} style={styles.request}>
+            <TouchableOpacity
+                activeOpacity={0.5}
+                style={styles.request}
+                onPress={()=> navigation.navigate('NewAccount')}
+            >
                 <Text style={styles.requestText1}> Não tem uma conta?</Text>
                 <Text style={styles.requestText2}> Solicite uma conta agora</Text>
             </TouchableOpacity>

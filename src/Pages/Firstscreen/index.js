@@ -21,7 +21,10 @@ function Firstscreen({navigation}){
                     <Text style={styles.txtCta} >Entrar na minha conta</Text>
                 </TouchableOpacity>
                 
-                <TouchableOpacity style={styles.btt}>
+                <TouchableOpacity
+                    style={styles.btt}
+                    onPress={() => navigation.navigate('NewAccount')}
+                >
                     <Text style={styles.txtBtt}>Solicitar uma conta</Text>
                 </TouchableOpacity>
             </View>

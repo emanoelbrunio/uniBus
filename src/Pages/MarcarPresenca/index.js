@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, Text, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 
-import prancheta from '../../../assets/Images/pranchetaBig.png'
-import vouevolto from '../../../assets/Images/vouevolto.png'
-import vou from '../../../assets/Images/vou.png'
-import volto from '../../../assets/Images/volto.png'
+import Prancheta from '../../../assets/Images/BigFile.svg'
+import Vouevolto from '../../../assets/Images/vouevolto.svg'
+import Vou from '../../../assets/Images/vou.svg'
+import Volto from '../../../assets/Images/volto.svg'
 
 function RadioButton(props) {
     return (
@@ -47,7 +47,7 @@ function MarcarPresenca({handleClose}) {
             
             <View style={styles.content}>
                 <View style={styles.line1}>
-                    <Image source={prancheta}/>
+                    <Prancheta />
                     <Text style={styles.titleCard}>Minha presença hoje</Text>
                     <Text style={styles.describe}>Marque uma opção para que o motorista saiba se você vai hoje ou não.</Text>
                 </View>
@@ -67,7 +67,7 @@ function MarcarPresenca({handleClose}) {
                     }}>
                         
                         <View style={styles.imgTitle}>
-                            <Image source={vouevolto}/>
+                            <Vouevolto />
                             <Text style={styles.titleSelect}>Eu vou e volto</Text>
                         </View>
 
@@ -86,7 +86,7 @@ function MarcarPresenca({handleClose}) {
                     }}>
                         
                         <View style={styles.imgTitle}>
-                            <Image source={vou}/>
+                            <Vou />
                             <Text style={styles.titleSelect}>Eu apenas vou</Text>
                         </View>
 
@@ -105,7 +105,7 @@ function MarcarPresenca({handleClose}) {
                     }}>
                         
                         <View style={styles.imgTitle}>
-                            <Image source={volto}/>
+                            <Volto />
                             <Text style={styles.titleSelect}>Eu apenas volto</Text>
                         </View>
 
