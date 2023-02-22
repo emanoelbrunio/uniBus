@@ -1,12 +1,46 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import ImgProfile from '../../../assets/Images/imgProfile.svg'
+import firebase from '../../../src/Firebase/firebaseConnection.js'
 
 function EditProfile() {
     const [nome, setNome] = useState('Antonio Cláudio');
     const [facul, setFacul] = useState('UFERSA');
     const [num, setNum] = useState('(88) 9.9999-9999');
-    
+
+    useEffect(()=> {
+        async function Dados(){
+            //o "on" atualiza sempre que tem informação nova no firebase
+            // await firebase.database().ref('nome').on('value', (snapshot)=>{
+            //     setNome(snapshot.val())
+            // })
+            // await firebase.database().ref(`usuarios/1/nome`).on('value', (snapshot)=>{
+            //     setNome(snapshot.val())
+            // })
+            await firebase.database().ref(`usuarios/2`).on('value', (snapshot)=>{
+                setNome(snapshot.val().nome)
+                setIdade(snapshot.val().idade)
+            })
+           // o once pega apenas uma vez
+            await firebase.database().ref('Usuarios').on('value', (snapshot) => {
+                setNome(snapshot.val().name);
+                setFacul(snapshot.val().uni);
+                setNum(snapshot.val().num);
+            })
+        }
+
+        
+        Dados();
+    }, [])
+
+    // async function atualiza(name, uni, num){
+    //     await firebase.database().ref('Usuarios').set({
+    //         name: name,
+    //         num: num,
+    //         uni: uni,
+    //     })
+    //}
+
     return (
         
         <View style={styles.pagToda}>
@@ -54,7 +88,10 @@ function EditProfile() {
                     placeholder="Seu nome aqui"
                 />
             </View>
-            <TouchableOpacity style={styles.cta}>
+            <TouchableOpacity
+                style={styles.cta}
+                // onPress={()=> atualiza(nome, facul, num)}
+            >
                 <Text style={styles.txtCta} >Salvar informações</Text>
             </TouchableOpacity>
         </View>

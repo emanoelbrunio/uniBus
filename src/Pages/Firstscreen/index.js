@@ -1,10 +1,44 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Image, View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { symbolName } from "typescript";
 import logo from '../../../assets/Images/logo.png'
 import nomeLogo from '../../../assets/Images/nome.png'
+import firebase from '../../../src/Firebase/firebaseConnection.js'
+
+
 function Firstscreen({navigation}){
+    // const [nome, setNome] = useState('carregando');
+    // const [idade, setIdade] = useState('');
+
+    // useEffect(()=> {
+    //     async function Dados(){
+    //         //o "on" atualiza sempre que tem informação nova no firebase
+    //         // await firebase.database().ref('nome').on('value', (snapshot)=>{
+    //         //     setNome(snapshot.val())
+    //         // })
+    //         // await firebase.database().ref(`usuarios/1/nome`).on('value', (snapshot)=>{
+    //         //     setNome(snapshot.val())
+    //         // })
+    //         // await firebase.database().ref(`usuarios/2`).on('value', (snapshot)=>{
+    //         //     setNome(snapshot.val().nome)
+    //         //     setIdade(snapshot.val().idade)
+    //         // })
+    //         //o once pega apenas uma vez
+    //         // await firebase.database().ref('nome').once('value', (snapshot) => {
+    //         //     setNome(snapshot.val());
+    //         // })
+
+             
+    //     }
+
+    //     Dados();
+    // }, [])
+
     return (
         <View style={styles.pagFull}>
+
+            {/* <Text style={{fontSize: 35, color: "#000"}}> olá {nome} </Text>
+            <Text style={{fontSize: 35, color: "#000"}}> idade {idade} </Text> */}
             <View style={styles.logos}>
                 <Image source={logo}/>
                 <Image source={nomeLogo}/>
@@ -43,6 +77,7 @@ const styles = StyleSheet.create({
         paddingTop: 100,
         backgroundColor: "#fff",
         paddingHorizontal: 20,
+        
     },
     logos:{
         alignItems: "center",
